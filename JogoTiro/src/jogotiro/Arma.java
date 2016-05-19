@@ -25,4 +25,5 @@ public interface Arma {
     int getY();
     void mirar();
     void keyPressed(KeyEvent tecla);
+    void keyReleased(KeyEvent tecla);
 }

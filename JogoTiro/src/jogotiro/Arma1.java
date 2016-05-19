@@ -25,8 +25,8 @@ public class Arma1 implements Arma{
         ImageIcon referencia = new ImageIcon("res\\arma1.png");
         imagem = referencia.getImage();
         
-        this.x = 200;
-        this.y = 500;
+        this.x = 0;
+        this.y = 0;
     }
     
     public void mirar(){
@@ -44,12 +44,12 @@ public class Arma1 implements Arma{
 
     @Override
     public int getMira() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return mira;
     }
 
     @Override
     public int getTiro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return tiro;
     }
 
    
@@ -66,12 +66,12 @@ public class Arma1 implements Arma{
 
     @Override
     public int getX() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return x;
     }
 
     @Override
     public int getY() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return y;
     }
 
     @Override
@@ -81,7 +81,7 @@ public class Arma1 implements Arma{
 
     @Override
     public Image getArma() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return imagem;
     }
 
     @Override
@@ -99,6 +99,11 @@ public class Arma1 implements Arma{
             *   Inserir mira
             */
         }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent tecla) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

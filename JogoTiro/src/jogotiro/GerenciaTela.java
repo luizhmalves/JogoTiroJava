@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 public class GerenciaTela extends JFrame{
 
     public GerenciaTela(){
+        add(new Fase1());
         this.setTitle("Tiro ao Alvo");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(500,400);

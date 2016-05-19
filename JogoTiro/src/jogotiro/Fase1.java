@@ -5,9 +5,13 @@
  */
 package jogotiro;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -16,15 +20,21 @@ import javax.swing.Timer;
  *
  * @author Luiz Alves
  */
-public class Fase1 extends JPanel implements ActionListener, Fase{
+public class Fase1 extends JPanel implements ActionListener{
     private Image fundo;
     private Arma arma;
     private Timer timer;
     
     public Fase1(){
+        setFocusable(true);
+        setDoubleBuffered(true);
+        addKeyListener(new MouseAdapter());
         ImageIcon referencia = new ImageIcon("res\\metalPlateFloorBump.png");
         fundo = referencia.getImage();
-            timer = new Timer(5, this);
+        arma = new Arma1();
+        timer = new Timer(5, this);
+        timer.start();
+        
     }
 
     public Image getFundo() {
@@ -50,9 +60,29 @@ public class Fase1 extends JPanel implements ActionListener, Fase{
     public void setTimer(Timer timer) {
         this.timer = timer;
     }
-
+    public void paint(Graphics g){
+        Graphics2D graficos = (Graphics2D) g;
+        graficos.drawImage(fundo, 0, 0, null);
+        graficos.drawImage(arma.getArma(), arma.getX(), arma.getY(), this);
+        g.dispose();
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //arma.getMira();
+        //arma.getTiro();
+        repaint();
+    }
+    private class MouseAdapter extends KeyAdapter {
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            arma.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            arma.keyReleased(e); //To change body of generated methods, choose Tools | Templates.
+        }
+        
     }
 }
