@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -64,10 +65,25 @@ public class Fase1 extends JPanel implements ActionListener{
         Graphics2D graficos = (Graphics2D) g;
         graficos.drawImage(fundo, 0, 0, null);
         graficos.drawImage(arma.getArma(), arma.getX(), arma.getY(), this);
+        List<Municao> municoes = arma.getMunicoes();
+        for(int i = 0; i < municoes.size(); i ++){
+            Municao bala = (Municao) municoes.get(i);
+            graficos.drawImage(bala.getImagem(), bala.getX(), bala.getY(), this);
+        }
         g.dispose();
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        List<Municao> municoes = arma.getMunicoes();
+        for(int i = 0; i < municoes.size(); i ++){
+            Municao bala = (Municao) municoes.get(i);
+            if(bala.isIsVisivel()){
+                bala.mexer();
+            }else{
+                municoes.remove(i);
+            }
+        }
+
         //arma.getMira();
         //arma.getTiro();
         repaint();

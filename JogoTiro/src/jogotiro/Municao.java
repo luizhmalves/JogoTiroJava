@@ -5,8 +5,8 @@
  */
 package jogotiro;
 
-import com.sun.org.apache.xerces.internal.util.DOMUtil;
 import java.awt.Image;
+import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 public class Municao {
     private Image imagem;
     private int x,y;
+    private int largura, altura;
     private boolean isVisivel;
     private static final int ALTURA_TELA = 500;
     private static final int VELOCIDADE = 2;
@@ -25,6 +26,8 @@ public class Municao {
         this.y = y;
         ImageIcon referencia = new ImageIcon();
         imagem = referencia.getImage();
+        this.largura = imagem.getWidth(null);
+        this.altura = imagem.getHeight(null);
         isVisivel = true;
     }
     public void mexer(){
@@ -52,6 +55,9 @@ public class Municao {
 
     public void setIsVisivel(boolean isVisivel) {
         this.isVisivel = isVisivel;
+    }
+     public Rectangle getBounds(){
+        return new Rectangle(x, y, largura, altura);
     }
     
 }

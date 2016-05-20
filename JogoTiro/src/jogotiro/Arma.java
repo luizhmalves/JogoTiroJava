@@ -6,24 +6,27 @@
 package jogotiro;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 /**
  *
  * @author Luiz Alves
  */
 public interface Arma {
+    void atira();
     void setMira(int mira);
     void setArma(Image imagem);
-    void setTiro(int tiro);
     void setX(int x);
     void setY(int y);
     int getMira();
     Image getArma();
-    int getTiro();
+    List<Municao> getMunicoes();
     int getX();
     int getY();
     void mirar();
     void keyPressed(KeyEvent tecla);
     void keyReleased(KeyEvent tecla);
+    Rectangle getBounds();
 }

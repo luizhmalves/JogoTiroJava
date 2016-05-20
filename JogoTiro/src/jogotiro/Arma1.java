@@ -6,7 +6,10 @@
 package jogotiro;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.ImageIcon;
 
 /**
@@ -15,18 +18,24 @@ import javax.swing.ImageIcon;
  */
 public class Arma1 implements Arma{
     int mira;
-    int tiro;
     int x;
     int y;
+    int largura, altura;
     Image imagem;
-       
+    private List<Municao> municoes;   
     public Arma1(){
         
         ImageIcon referencia = new ImageIcon("res\\arma1.png");
         imagem = referencia.getImage();
-        
+        altura = imagem.getHeight(null);
+        largura = imagem.getWidth(null);
+        municoes = new ArrayList<Municao>();
         this.x = 0;
         this.y = 0;
+    }
+    
+    public List<Municao> getMunicoes() {
+        return municoes;
     }
     
     public void mirar(){
@@ -37,22 +46,10 @@ public class Arma1 implements Arma{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public void setTiro(int tiro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
+   @Override
     public int getMira() {
         return mira;
     }
-
-    @Override
-    public int getTiro() {
-        return tiro;
-    }
-
-   
 
     @Override
     public void setX(int x) {
@@ -83,7 +80,14 @@ public class Arma1 implements Arma{
     public Image getArma() {
         return imagem;
     }
-
+    
+    public void atira(){
+        this.municoes.add(new Municao(x + largura, y + altura/2));
+    }
+  
+    public Rectangle getBounds(){
+        return new Rectangle(x, y, largura, altura);
+    }
     @Override
     public void keyPressed(KeyEvent tecla) {
         int codigo = tecla.getKeyCode();
@@ -92,6 +96,8 @@ public class Arma1 implements Arma{
             /**confirmar código para o botão direito do mouse
             *   Atirar
             */
+            atira();
+            
         }
         if(codigo == KeyEvent.MOUSE_EVENT_MASK){
             
@@ -105,5 +111,6 @@ public class Arma1 implements Arma{
     public void keyReleased(KeyEvent tecla) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
 }
