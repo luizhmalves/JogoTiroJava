@@ -38,9 +38,6 @@ public class Arma{
         return municoes;
     }
     
-    public void mirar(){
-        
-    }
     public int getX() {
         return x;
     }
@@ -57,7 +54,7 @@ public class Arma{
     public void atira(){
         this.municoes.add(new Municao(x + largura, y + altura/2));
     }
-    public boolean isIsVisivel() {
+    public boolean getVisivel() {
         return Visivel;
     }
 
