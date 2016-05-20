@@ -17,7 +17,7 @@ public class Alvo {
     private Image imagem;
     private int x,y;
     private int altura,largura;
-    private boolean isVisivel;
+    private boolean Visivel;
     private static final int ALTURA_TELA = 500;
     private static final int LARGURA_TELA = 400;
     private static final int VELOCIDADE = 1;
@@ -29,7 +29,7 @@ public class Alvo {
         imagem = referencia.getImage();
         largura = imagem.getWidth(null);
         altura = imagem.getHeight(null);
-        isVisivel = true;
+        Visivel = true;
     }
     public void mexer(){
         if(this.x < 0){
@@ -51,12 +51,12 @@ public class Alvo {
         return y;
     }
 
-    public boolean isIsVisivel() {
-        return isVisivel;
+    public boolean getVisivel() {
+        return Visivel;
     }
 
-    public void setIsVisivel(boolean isVisivel) {
-        this.isVisivel = isVisivel;
+    public void setVisivel(boolean Visivel) {
+        this.Visivel = Visivel;
     }
     public Rectangle getBounds(){
         return new Rectangle(x, y, largura, altura);

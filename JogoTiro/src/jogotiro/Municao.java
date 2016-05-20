@@ -13,11 +13,11 @@ import javax.swing.ImageIcon;
  *
  * @author Luiz Alves
  */
-public class Municao {
+public class Municao implements Tiro {
     private Image imagem;
     private int x,y;
     private int largura, altura;
-    private boolean isVisivel;
+    private boolean Visivel;
     private static final int ALTURA_TELA = 500;
     private static final int VELOCIDADE = 2;
     
@@ -28,12 +28,12 @@ public class Municao {
         imagem = referencia.getImage();
         this.largura = imagem.getWidth(null);
         this.altura = imagem.getHeight(null);
-        isVisivel = true;
+        Visivel = true;
     }
     public void mexer(){
         this.y -= VELOCIDADE;
         if(y > ALTURA_TELA){
-            isVisivel = false;
+            Visivel = false;
         }
     }
 
@@ -49,12 +49,12 @@ public class Municao {
         return y;
     }
 
-    public boolean isIsVisivel() {
-        return isVisivel;
+    public boolean getVisivel() {
+        return Visivel;
     }
 
-    public void setIsVisivel(boolean isVisivel) {
-        this.isVisivel = isVisivel;
+    public void setVisivel(boolean Visivel) {
+        this.Visivel = Visivel;
     }
      public Rectangle getBounds(){
         return new Rectangle(x, y, largura, altura);
