@@ -19,13 +19,15 @@ import javax.swing.ImageIcon;
 public class Arma{
     private int x;
     private int y;
+    private int dx;
+    private int dy;
     private boolean Visivel;    
     private int largura, altura;
     private Image imagem;
     private List<Municao> municoes;   
     public Arma(){
         
-        ImageIcon referencia = new ImageIcon("res\\arma1.png");
+        ImageIcon referencia = new ImageIcon("res\\");
         imagem = referencia.getImage();
         altura = imagem.getHeight(null);
         largura = imagem.getWidth(null);
@@ -33,7 +35,13 @@ public class Arma{
         this.x = 0;
         this.y = 0;
     }
-    
+    //Modificar essa classe
+    public void moverDireita(){
+        x -=dx;
+    }
+    public void moverEsquerda(){
+        x +=dx;
+    }
     public List<Municao> getMunicoes() {
         return municoes;
     }
@@ -68,18 +76,14 @@ public class Arma{
     public void keyPressed(KeyEvent tecla) {
         int codigo = tecla.getKeyCode();
         
-        if(codigo == KeyEvent.BUTTON1_MASK){
-            /**confirmar código para o botão direito do mouse
-            *   Atirar
-            */
-            atira();
+        if(codigo == KeyEvent.VK_LEFT){
+           
+            moverEsquerda();
             
         }
-        if(codigo == KeyEvent.MOUSE_EVENT_MASK){
+        if(codigo == KeyEvent.VK_RIGHT){
             
-            /*confirmar se captura o movimento do mouse
-            *   Inserir mira
-            */
+            moverDireita();
         }
     }
 

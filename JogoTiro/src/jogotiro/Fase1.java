@@ -36,8 +36,8 @@ public class Fase1 extends JPanel implements ActionListener {
     public Fase1() {
         setFocusable(true);
         setDoubleBuffered(true);
-        addKeyListener(new MouseAdapter());
-        ImageIcon referencia = new ImageIcon("res\\metalPlateFloorBump.png");
+        addKeyListener(new TecladoAdapter());
+        ImageIcon referencia = new ImageIcon("res\\forest.jpg");
         fundo = referencia.getImage();
         arma = new Arma();
         emJogo = true;
@@ -158,7 +158,7 @@ public class Fase1 extends JPanel implements ActionListener {
         repaint();
     }
 
-    private class MouseAdapter extends KeyAdapter {
+    private class TecladoAdapter extends KeyAdapter {
         
         @Override
         public void keyPressed(KeyEvent e) {

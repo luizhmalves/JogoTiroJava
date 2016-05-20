@@ -25,7 +25,7 @@ public class Alvo {
     public Alvo(int x, int y){
         this.x = x;
         this.y = y;
-        ImageIcon referencia = new ImageIcon();
+        ImageIcon referencia = new ImageIcon("\res\\");
         imagem = referencia.getImage();
         largura = imagem.getWidth(null);
         altura = imagem.getHeight(null);
