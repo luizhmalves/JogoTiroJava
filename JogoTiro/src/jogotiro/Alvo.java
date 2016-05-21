@@ -18,14 +18,14 @@ public class Alvo {
     private int x,y;
     private int altura,largura;
     private boolean Visivel;
-    private static final int ALTURA_TELA = 500;
-    private static final int LARGURA_TELA = 400;
+    private static final int ALTURA_TELA = 1024;
+    private static final int LARGURA_TELA = 600;
     private static final int VELOCIDADE = 1;
     
     public Alvo(int x, int y){
         this.x = x;
         this.y = y;
-        ImageIcon referencia = new ImageIcon("\res\\");
+        ImageIcon referencia = new ImageIcon("res//pato.gif");
         imagem = referencia.getImage();
         largura = imagem.getWidth(null);
         altura = imagem.getHeight(null);

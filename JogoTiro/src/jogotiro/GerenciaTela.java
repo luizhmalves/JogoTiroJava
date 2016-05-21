@@ -46,7 +46,7 @@ public class GerenciaTela extends JFrame{
         add(new Fase1());
         this.setTitle("Tiro ao Alvo");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(500,400);
+        this.setSize(1024,600);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setVisible(true);

@@ -27,13 +27,13 @@ public class Arma{
     private List<Municao> municoes;   
     public Arma(){
         
-        ImageIcon referencia = new ImageIcon("res\\");
+        ImageIcon referencia = new ImageIcon("res//metralhadora.png");
         imagem = referencia.getImage();
         altura = imagem.getHeight(null);
         largura = imagem.getWidth(null);
         municoes = new ArrayList<Municao>();
-        this.x = 0;
-        this.y = 0;
+        this.x = 400;
+        this.y = 402;
     }
     //Modificar essa classe
     public void moverDireita(){
