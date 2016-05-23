@@ -18,8 +18,8 @@ public class Alvo {
     private int x,y;
     private int altura,largura;
     private boolean Visivel;
-    private static final int ALTURA_TELA = 1024;
-    private static final int LARGURA_TELA = 600;
+    private static final int ALTURA_TELA = 600;
+    private static final int LARGURA_TELA = 1024;
     private static final int VELOCIDADE = 1;
     
     public Alvo(int x, int y){
