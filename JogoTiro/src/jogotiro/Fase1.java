@@ -142,7 +142,7 @@ public class Fase1 extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        arma.mover();
         if (alvos.size() == 0) {
             emJogo = false;
         }

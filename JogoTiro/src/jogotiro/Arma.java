@@ -35,13 +35,20 @@ public class Arma{
         this.x = 400;
         this.y = 402;
     }
-    //Modificar essa classe
-    public void moverDireita(){
-        x -=dx;
-    }
-    public void moverEsquerda(){
+    
+    public void mover(){
         x +=dx;
+        if(x < 0){
+            x = 0;
+        }
+        if(x > 1024){
+            x = 1024;
+        }
     }
+    /*public void moverEsquerda(){
+        x +=dx;
+        
+    }*/
     public List<Municao> getMunicoes() {
         return municoes;
     }
@@ -78,18 +85,30 @@ public class Arma{
         
         if(codigo == KeyEvent.VK_LEFT){
            
-            moverEsquerda();
+            dx = -1;
             
         }
         if(codigo == KeyEvent.VK_RIGHT){
             
-            moverDireita();
+            dx = 1;
         }
     }
 
     
     public void keyReleased(KeyEvent tecla) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        int codigo = tecla.getKeyCode();
+        
+        if(codigo == KeyEvent.VK_LEFT){
+           
+            dx = 0;
+            
+        }
+        if(codigo == KeyEvent.VK_RIGHT){
+            
+            dx = 0;
+        }
+        
     }
     
     
