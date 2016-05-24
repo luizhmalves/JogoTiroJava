@@ -63,7 +63,7 @@ public class Arma{
     }
     
     public void atira(){
-        this.municoes.add(new Municao(x + largura, y + altura/2));
+        this.municoes.add(new Municao(x + largura/2, y - altura));
     }
     public boolean getVisivel() {
         return Visivel;
@@ -79,6 +79,9 @@ public class Arma{
     public void keyPressed(KeyEvent tecla) {
         int codigo = tecla.getKeyCode();
         
+        if(codigo == KeyEvent.VK_SPACE){
+            atira();
+        }
         if(codigo == KeyEvent.VK_LEFT){
            
             dx = -1;

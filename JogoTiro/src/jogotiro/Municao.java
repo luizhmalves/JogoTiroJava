@@ -18,13 +18,13 @@ public class Municao implements Tiro {
     private int x,y;
     private int largura, altura;
     private boolean Visivel;
-    private static final int ALTURA_TELA = 500;
-    private static final int VELOCIDADE = 2;
+    //private static final int ALTURA_TELA = 600;
+    private static final int VELOCIDADE = 1;
     
     public Municao(int x, int y){
         this.x = x;
         this.y = y;
-        ImageIcon referencia = new ImageIcon();
+        ImageIcon referencia = new ImageIcon("res//bala.png");
         imagem = referencia.getImage();
         this.largura = imagem.getWidth(null);
         this.altura = imagem.getHeight(null);
@@ -32,7 +32,7 @@ public class Municao implements Tiro {
     }
     public void mexer(){
         this.y -= VELOCIDADE;
-        if(y > ALTURA_TELA){
+        if(y < 0){
             Visivel = false;
         }
     }
