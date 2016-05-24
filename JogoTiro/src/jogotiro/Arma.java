@@ -27,13 +27,13 @@ public class Arma{
     private List<Municao> municoes;   
     public Arma(){
         
-        ImageIcon referencia = new ImageIcon("res//metralhadora.png");
+        ImageIcon referencia = new ImageIcon("res//arma.png");
         imagem = referencia.getImage();
         altura = imagem.getHeight(null);
         largura = imagem.getWidth(null);
         municoes = new ArrayList<Municao>();
         this.x = 400;
-        this.y = 402;
+        this.y = 419;
     }
     //Mudar colocar em relação ao tamanho da tela e da imagem fazer uma função
     public void mover(){
@@ -41,8 +41,8 @@ public class Arma{
         if(x < 0){
             x = 0;
         }
-        if(x > 740){
-            x = 740;
+       if(x > 730){
+            x = 730;
         }
     }
     public List<Municao> getMunicoes() {
@@ -63,7 +63,7 @@ public class Arma{
     }
     
     public void atira(){
-        this.municoes.add(new Municao(x + largura/2, y - altura/5));
+        this.municoes.add(new Municao(x + largura/3, y + altura/15));
     }
     public boolean getVisivel() {
         return Visivel;
