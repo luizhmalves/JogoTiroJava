@@ -35,20 +35,16 @@ public class Arma{
         this.x = 400;
         this.y = 402;
     }
-    
+    //Mudar colocar em relação ao tamanho da tela e da imagem fazer uma função
     public void mover(){
         x +=dx;
         if(x < 0){
             x = 0;
         }
-        if(x > 1024){
-            x = 1024;
+        if(x > 740){
+            x = 740;
         }
     }
-    /*public void moverEsquerda(){
-        x +=dx;
-        
-    }*/
     public List<Municao> getMunicoes() {
         return municoes;
     }
