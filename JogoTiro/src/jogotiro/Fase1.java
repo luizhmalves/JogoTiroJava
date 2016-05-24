@@ -107,7 +107,7 @@ public class Fase1 extends JPanel implements ActionListener {
             graficos.setColor(Color.red);
             graficos.drawString("ALVOS :" + alvos.size(), 5, 15);
         }else{
-            ImageIcon fimDoJogo = new ImageIcon("res//");//colocar a imagem de fim
+            ImageIcon fimDoJogo = new ImageIcon("res//fimDeJogo.png");
             graficos.drawImage(fimDoJogo.getImage(), 0, 0, null);
         }
         g.dispose();

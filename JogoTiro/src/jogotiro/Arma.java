@@ -63,7 +63,7 @@ public class Arma{
     }
     
     public void atira(){
-        this.municoes.add(new Municao(x + largura/2, y - altura));
+        this.municoes.add(new Municao(x + largura/2, y - altura/5));
     }
     public boolean getVisivel() {
         return Visivel;
