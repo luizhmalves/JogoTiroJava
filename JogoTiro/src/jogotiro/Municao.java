@@ -19,7 +19,7 @@ public class Municao implements Tiro {
     private int largura, altura;
     private boolean Visivel;
     //private static final int ALTURA_TELA = 600;
-    private static final int VELOCIDADE = 1;
+    private static final int VELOCIDADE = 3;
     
     public Municao(int x, int y){
         this.x = x;

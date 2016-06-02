@@ -8,6 +8,7 @@ package jogotiro;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -76,11 +77,12 @@ public class Arma{
         return new Rectangle(x, y, largura, altura);
     }
     
-    public void keyPressed(KeyEvent tecla) {
+    public void keyPressed(KeyEvent tecla) throws InterruptedException {
         int codigo = tecla.getKeyCode();
         
         if(codigo == KeyEvent.VK_SPACE){
             atira();
+            
         }
         if(codigo == KeyEvent.VK_LEFT){
            
