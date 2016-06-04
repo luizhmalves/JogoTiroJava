@@ -17,6 +17,8 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -34,13 +36,7 @@ public class Fase1 extends JPanel implements ActionListener {
     private List<Alvo> alvos;
     private int[][] coordenadas = {{2380,29}, {2600,59}, {1380,89},{780,109},
                                    {580,139}, {880,239}, {790,259}, {760,50},
-                                   {790,150}, {1980,209}};/*, {560,45}, {510,70},
-                                   {930,159}, {590,80}, {530,60}, {940,59},
-                                   {990,30}, {920,200}, {900,259}, {660,50},
-                                   {540,90}, {810,220}, {860,20}, {740,180},
-                                   {820,128}, {490,170},{700,30}, {920,300},
-                                   {856,328}, {456,320}};*/
-    //criar matriz com as posições dos alvos
+                                   {790,150}, {1980,209}};
     
     public Fase1() {
         setFocusable(true);
@@ -181,7 +177,11 @@ public class Fase1 extends JPanel implements ActionListener {
                 inicializaAlvo();
             }
             
-            arma.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
+            try {
+                arma.keyPressed(e); //To change body of generated methods, choose Tools | Templates.
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Fase1.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         @Override
