@@ -8,6 +8,8 @@ package jogotiro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -23,8 +25,9 @@ import javax.swing.JSeparator;
 public class GerenciaTela extends JFrame {
 
     private String path;
-
+    private Reflexao reflexao;
     public GerenciaTela() {
+        
         JMenuBar barraMenu = new JMenuBar();
         JMenu menu = new JMenu("Menu");
         JMenuItem atualiza = new JMenuItem("Atualizar");
@@ -32,7 +35,15 @@ public class GerenciaTela extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 path = FileChooser();
-                
+                try {
+                    reflexao = new Reflexao(path);
+                } catch (ClassNotFoundException ex) {
+                    JOptionPane.showMessageDialog(null, "Não foi possível carregar a classe", "ERRO!!!", JOptionPane.ERROR_MESSAGE);
+                } catch (InstantiationException ex) {
+                    JOptionPane.showMessageDialog(null, "Não foi possivel instanciar a classe.", "Informação", JOptionPane.INFORMATION_MESSAGE);
+                } catch (IllegalAccessException ex) {
+                    JOptionPane.showMessageDialog(null, "Não foi possível instanciar a classe.", "Informação.", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
         });
         JMenuItem sobre = new JMenuItem("Sobre");

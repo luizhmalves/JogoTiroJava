@@ -7,17 +7,14 @@ package jogotiro;
 
 /**
  *
- * @author Luiz Alves
+ * @author luiz
  */
 public class Reflexao extends ClassLoader {
-
-    public Reflexao() throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        ClassLoader parentClassLoader = CarregamentoReflexao.class.getClassLoader();
-        CarregamentoReflexao classLoader = new CarregamentoReflexao(parentClassLoader);
-        Class minhaClasseObjeto = classLoader.loadClass("Municao");
-        Tiro objeto1 = (Tiro) minhaClasseObjeto.newInstance();
-        Object objeto2 = (Object) minhaClasseObjeto.newInstance();
-        
-        
+    public Reflexao(String endereco) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+        ClassLoader parentClassLoader = MyClassLoader.class.getClassLoader();
+        MyClassLoader classLoader = new MyClassLoader(parentClassLoader);
+        Class minhaClasseObjeto = classLoader.loadClass("Municao", endereco);
+        Tiro Municao = (Tiro) minhaClasseObjeto.newInstance();
+        Object MunicaoObjeto = (Object) minhaClasseObjeto.newInstance();
     }
 }
