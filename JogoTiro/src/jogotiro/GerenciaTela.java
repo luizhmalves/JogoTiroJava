@@ -36,6 +36,7 @@ public class GerenciaTela extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 path = FileChooser();
+                JOptionPane.showMessageDialog(null, path);
                 try {
                     reflexao = new Reflexao1(path);
                 } catch (MalformedURLException ex) {
@@ -87,7 +88,7 @@ public class GerenciaTela extends JFrame {
         int retorno = arquivo.showOpenDialog(null);
         if (retorno == JFileChooser.APPROVE_OPTION) {
             caminhoArquivo = arquivo.getSelectedFile().getAbsolutePath();
-            JOptionPane.showMessageDialog(null, caminhoArquivo);
+            
         }
         return caminhoArquivo;
     }
