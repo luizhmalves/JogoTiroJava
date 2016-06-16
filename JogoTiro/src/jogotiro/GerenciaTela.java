@@ -26,24 +26,22 @@ import javax.swing.JSeparator;
 public class GerenciaTela extends JFrame {
 
     private String path;
-    private Reflexao1 reflexao;
+    private RecebePath caminho;
+
     public GerenciaTela() {
-        
+
         JMenuBar barraMenu = new JMenuBar();
         JMenu menu = new JMenu("Menu");
         JMenuItem atualiza = new JMenuItem("Atualizar");
         atualiza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                path = FileChooser();
+                
+                caminho = new RecebePath();
+                caminho.setPath(FileChooser());
+                path = caminho.getPath();
                 JOptionPane.showMessageDialog(null, path);
-                try {
-                    reflexao = new Reflexao1(path);
-                } catch (MalformedURLException ex) {
-                    Logger.getLogger(GerenciaTela.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(GerenciaTela.class.getName()).log(Level.SEVERE, null, ex);
-                }
+
             }
         });
         JMenuItem sobre = new JMenuItem("Sobre");
@@ -88,7 +86,7 @@ public class GerenciaTela extends JFrame {
         int retorno = arquivo.showOpenDialog(null);
         if (retorno == JFileChooser.APPROVE_OPTION) {
             caminhoArquivo = arquivo.getSelectedFile().getAbsolutePath();
-            
+
         }
         return caminhoArquivo;
     }
