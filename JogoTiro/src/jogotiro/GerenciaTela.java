@@ -8,6 +8,7 @@ package jogotiro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -25,7 +26,7 @@ import javax.swing.JSeparator;
 public class GerenciaTela extends JFrame {
 
     private String path;
-    private Reflexao reflexao;
+    private Reflexao1 reflexao;
     public GerenciaTela() {
         
         JMenuBar barraMenu = new JMenuBar();
@@ -36,13 +37,11 @@ public class GerenciaTela extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 path = FileChooser();
                 try {
-                    reflexao = new Reflexao(path);
+                    reflexao = new Reflexao1(path);
+                } catch (MalformedURLException ex) {
+                    Logger.getLogger(GerenciaTela.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ClassNotFoundException ex) {
-                    JOptionPane.showMessageDialog(null, "Não foi possível carregar a classe", "ERRO!!!", JOptionPane.ERROR_MESSAGE);
-                } catch (InstantiationException ex) {
-                    JOptionPane.showMessageDialog(null, "Não foi possivel instanciar a classe.", "Informação", JOptionPane.INFORMATION_MESSAGE);
-                } catch (IllegalAccessException ex) {
-                    JOptionPane.showMessageDialog(null, "Não foi possível instanciar a classe.", "Informação.", JOptionPane.INFORMATION_MESSAGE);
+                    Logger.getLogger(GerenciaTela.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
