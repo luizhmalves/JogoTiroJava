@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
  * @author Luiz Alves
  */
 public class Arma{
+    private Municao municao; 
     private int x;
     private int y;
     private int dx;
@@ -33,9 +34,12 @@ public class Arma{
         altura = imagem.getHeight(null);
         largura = imagem.getWidth(null);
         municoes = new ArrayList<Municao>();
+        municao = new Municao(x + largura/3, y + altura/15);
         this.x = 400;
         this.y = 419;
     }
+
+    
     //Mudar colocar em relação ao tamanho da tela e da imagem fazer uma função
     public void mover(){
         x +=dx;
@@ -46,6 +50,13 @@ public class Arma{
             x = 730;
         }
     }
+    public void setMunicao(Municao municao) {
+        this.municao = new Municao(x + largura/3, y + altura/15);
+    }
+    public Municao getMunicao() {
+        return municao;
+    }
+    
     public List<Municao> getMunicoes() {
         return municoes;
     }
@@ -64,8 +75,15 @@ public class Arma{
     }
     
     public void atira(){
-        this.municoes.add(new Municao(x + largura/3, y + altura/15));
+       
+       this.municoes.add(new Municao(x + largura/3, y + altura/15));
     }
+
+    
+
+    
+
+    
     public boolean getVisivel() {
         return Visivel;
     }
