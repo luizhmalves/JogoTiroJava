@@ -24,6 +24,7 @@ public class MyClassLoader extends ClassLoader {
         super(parent);
     }
 
+    @Override
     public Class loadClass(String name) throws ClassNotFoundException {
 
         if (!"Municao".equals(name)) {

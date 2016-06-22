@@ -20,7 +20,7 @@ public class Reflexao {
         try {
             Class meuObjetoClasse = classLoader.loadClass(classe);// captura a classe
             Tiro objetoInterface = (Tiro) meuObjetoClasse.newInstance();
-            Municao objetoMunicao = (Municao) meuObjetoClasse.newInstance();//Instancia a nclasse
+            Arma objetoMunicao = (Arma) meuObjetoClasse.newInstance();//Instancia a nclasse
         }catch (InstantiationException ex) {
             JOptionPane.showMessageDialog(null, "Não foi possível acessar construtor.", "Erro!!!", JOptionPane.ERROR_MESSAGE);
         } catch (ClassNotFoundException ex) {
