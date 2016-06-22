@@ -21,9 +21,7 @@ public class Municao {
     //private static final int ALTURA_TELA = 600;
     private static final int VELOCIDADE = 13;//retirar como constante
     
-    public static void main(String[] args) {
-        
-    }
+    
     public Municao(int x, int y){
         this.x = x;
         this.y = y;

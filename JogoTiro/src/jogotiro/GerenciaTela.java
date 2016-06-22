@@ -24,8 +24,8 @@ import javax.swing.JSeparator;
 public class GerenciaTela extends JFrame {
 
     private String path;
-    private static ArrayList<String> classeTemp = new ArrayList<String>();
-    private Reflexao reflexao;
+    private IdentificaNomeClasse nomeClasse;
+    
     
     public GerenciaTela() {
         JMenuItem municaoNivel1;
@@ -41,21 +41,8 @@ public class GerenciaTela extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String path = "src/jogotiro/municaoNivel2/";
-                File caminho = new File(path);
-                String[] classes = caminho.list();
-                for (String classe1 : classes) {
-                    String classe2 = classe1.replace(".java", "").trim();
-                    classeTemp.add(classe2);
-                }
-                String classe = "";
-                for (int i = 0; i < classeTemp.size(); i++) {
-                    classe = classeTemp.get(i) + classe;
-                    
-                }
-                JOptionPane.showMessageDialog(null, classe);
-                reflexao = new Reflexao(classe);
-                
-                //JOptionPane.showMessageDialog(null, "Munição Nivel 2 adicionado com sucesso.");
+                nomeClasse = new IdentificaNomeClasse(path);
+               
             }
         });
         
