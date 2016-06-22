@@ -62,7 +62,11 @@ public class GerenciaTela extends JFrame {
         sobre.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Jogo desenvolvido por Luiz Alves!", "Informações", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Jogo baseado em uma caçada a patos.\n"
+                        + "No qual foi usado a técnica de reflexão e o padrão de projeto\n"
+                        + "strategy, sendo o tipo de munição e seu formato implementados\n"
+                        + "conforme a Interface denominada Tiro.\n"
+                        + "Jogo desenvolvido por Luiz Alves!", "Informações", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         JMenuItem sair = new JMenuItem("Sair");
