@@ -75,7 +75,10 @@ public class Arma{
     }
     
     public void atira(){
-       
+       /*Municao m = null;
+       Reflect r;
+       m = r.Criar(this.nometiro);
+       m.setX(th)*/
        this.municoes.add(new Municao(x + largura/3, y + altura/15));
     }
 
