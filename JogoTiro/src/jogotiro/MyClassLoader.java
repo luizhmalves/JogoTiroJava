@@ -23,8 +23,11 @@ public class MyClassLoader extends ClassLoader {
     public MyClassLoader(ClassLoader parent) {
         super(parent);
     }
+    public Class loadClass(String name) throws ClassNotFoundException{
+        return super.loadClass(name);
+    }
 
-    @Override
+   /* @Override
     public Class loadClass(String name) throws ClassNotFoundException {
 
         if (!"Municao".equals(name)) {
@@ -54,5 +57,5 @@ public class MyClassLoader extends ClassLoader {
             Logger.getLogger(MyClassLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-    }
+    }*/
 }
